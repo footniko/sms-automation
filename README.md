@@ -56,8 +56,20 @@ Response:
 }
 ```
   
+Setup
+-----
 In order to launch this application, you need to have a configured web server with database.  
 You need to fill out `.env` file as described in `.env.example` with your configs.  
+
+Before you make any test, you have to apply db migrations, simply run:
+```
+php /path/to/project/root/artisan migrate
+```
+This will create all necessary tables in DB. It's also possible to fill the DB with dummy data:
+```
+php /path/to/project/root/artisan db:seed
+```
+Otherwise you can use the rest endpoint (`POST /campaigns`).
 
 This app also supports a command that sends all queued sms messages to its receivers. In order to run it, you have to run the following command:
 ```
@@ -65,3 +77,4 @@ php /path/to/project/root/artisan sms:send
 ```
 This command will retrieve a list of queued sms messages from database limited by `APP_MESSAGES_LIMIT` config param and send them to the recipients. Logs will be stored at `sms_logs` table.  
 You can configure your system to schedule this command (using cron for example).
+
