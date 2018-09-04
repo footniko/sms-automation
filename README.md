@@ -71,7 +71,12 @@ Setup
 In order to launch this application, you need to have a configured web server with database.  
 You need to fill out `.env` file as described in `.env.example` with your configs.  
 
-Before you make any test, you have to apply db migrations, simply run:
+Before you make any test, you have to install all composer packages:
+```
+cd /path/to/project/root/
+composer install
+```
+ And apply db migrations, simply run:
 ```
 php /path/to/project/root/artisan migrate
 ```
