@@ -55,6 +55,16 @@ Response:
     }
 }
 ```
+Workflow
+--------  
+The project consists of 3 major tables:  
+1. sms_campaigns
+2. sms_queues
+3. sms_logs
+
+When you add a campaign through the `/campaigns` endpoint, it fills _sms_campaigns_ table with common data and additionally creates a record in _sms_queues_ table for each phone number that belongs to the campaign.  
+Now, when you run the console command (`sms:send`), it checks the _sms_queues_ table for records with _Waiting_ status and simply sends it to the phone number. After that, the status of the record becomes _Sent_. And, if it's the last record from the campaign the corresponding campaign's status also becomes as _Sent_.
+
   
 Setup
 -----
