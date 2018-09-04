@@ -71,7 +71,7 @@ php /path/to/project/root/artisan db:seed
 ```
 Otherwise you can use the rest endpoint (`POST /campaigns`).
 
-This app also supports a command that sends all queued sms messages to its receivers. In order to run it, you have to run the following command:
+This app also supports a command that sends all queued sms messages to its receivers. In order to run it, you have to execute the following command:
 ```
 php /path/to/project/root/artisan sms:send
 ```
